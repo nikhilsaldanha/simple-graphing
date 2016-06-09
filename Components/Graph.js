@@ -74,15 +74,15 @@ class Graph extends React.Component {
   }
 
   render () {
-    let data = this.props.state.upload.data;
-    let keys = d3.keys(this.props.state.upload.data[0]);
+    let data = this.props.config.upload.data;
+    let keys = d3.keys(data[0]);
 
-    let dim = this.props.state.options.dim;
+    let dim = this.props.config.options.dim;
     let width = dim.width;
     let height = dim.height;
     let margins = dim.margins;
 
-    let axes = this.props.state.options.axes;
+    let axes = this.props.config.options.axes;
     let x_axis = axes.x_axis;
     let y_axis = axes.y_axis;
     let xData = data.map(d=>d[keys[0]]);

@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 import React, {Component, PropTypes } from 'react';
-import AxesOptions from '../Components/AxesOptions.js';
+import AxesOptions from '../components/AxesOptions.js';
 import DimOptions from './DimOptions.js';
 
 class Options extends Component {
@@ -10,14 +10,10 @@ class Options extends Component {
   constructor() {
 
     super();
-    this.updateAxes = this.updateAxes.bind(this);
-    this.updateDim = this.updateDim.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  updateAxes(action) {
-    this.props.update(action);
-  }
-  updateDim(action) {
+  update(action) {
     this.props.update(action);
   }
 
@@ -36,25 +32,23 @@ class Options extends Component {
                    scale_types={this.props.scale_types}
                    date_formats={this.props.date_formats}
                    time_formats={this.props.time_formats}
-                   updateAxes={this.updateAxes}
-                   state={this.props.state.axes.x_axis}/>
+                   updateAxes={this.update}
+                   options={this.props.options.axes.x_axis}/>
       <br />
       <AxesOptions id="y_axis"
                    LabelName="Y Axis"
                    scale_types={this.props.scale_types}
                    date_formats={this.props.date_formats}
                    time_formats={this.props.time_formats}
-                   updateAxes={this.updateAxes}
-                   state={this.props.state.axes.y_axis}/>
+                   updateAxes={this.update}
+                   options={this.props.options.axes.y_axis}/>
       <br />
-      <DimOptions state={this.props.state.dim} updateDim={this.updateDim} />
+      <DimOptions options={this.props.options.dim} updateDim={this.update} />
       </div>
     );
   }
 }
 Options.propTypes = {
-  name: React.PropTypes.string,
-  label: React.PropTypes.string,
   scale_types: React.PropTypes.array.isRequired,
   date_formats: React.PropTypes.array.isRequired,
   time_formats: React.PropTypes.array.isRequired

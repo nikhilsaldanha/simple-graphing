@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import './axes';
-import './dim';
-import './upload';
+import axes from './axes';
+import dim from './dim';
+import upload from './upload';
 
 const rootReducer = combineReducers({
   upload,

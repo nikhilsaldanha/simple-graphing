@@ -1,0 +1,5 @@
+export const CHANGE_DIM = 'CHANGE_DIM';
+export const DEFAULT_WIDTH = 'DEFAULT_WIDTH';
+export const DEFAULT_HEIGHT = 'DEFAULT_HEIGHT';
+export const DEFAULT_MARGINS = 'DEFAULT_MARGINS';
+export const DEFAULT_DIM = 'DEFAULT_DIM';

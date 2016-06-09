@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-import Options from './Options.js';
-import Graph from '../Components/Graph.js';
-import CSVTable from '../Components/CSVTable.js';
-
+import Options from './Options';
+import Graph from '../Components/Graph';
+import CSVTable from '../Components/CSVTable';
+import * as actions from '../actions/data';
+ 
 class App extends Component {
 
   constructor() {
@@ -14,7 +16,7 @@ class App extends Component {
     this.interchange = this.interchange.bind(this);
   }
   interchange(e) {
-    let data = this.props.state.upload.data;
+    let data = this.props.upload.data;
     let keys = d3.keys(data[0]);
     let new_data = data.map((d)=>{
       let r = {};
@@ -29,29 +31,42 @@ class App extends Component {
     let reader = new FileReader();
     let file = document.getElementById(this.props.id).files[0];
     reader.onload = (e) => {
-      this.props.Dispatch({type: 'UPLOAD_DATA', data: d3.csv.parse(e.target.result)});
+      this.props.update({type: 'UPLOAD_DATA', data: d3.csv.parse(e.target.result)});
     }
     reader.readAsText(file);
   }
   render() {
+    let { id, upload, update, options } = this.props;
     return (
       <div>
-        <input type="file"
-               id={this.props.id}
+        <input id={id}
+               type="file"
                onChange={this.fileUpload}>
         </input>
         {(() => {
-          if(this.props.state.upload.event == 'UPLOADED') {
+          if(upload.event == 'UPLOADED') {
             return (<input type="button" value="Interchange Axes" onClick={this.interchange} />);
           }
         })()}
-        <CSVTable store={this.props.state.upload} />
-        <Options update={this.props.Dispatch}
-                 state={this.props.state.options} />
-        <Graph state={this.props.state}/>
+        <CSVTable data={upload} />
+        <Options update={update}
+                 options={options} />
+        <Graph config={{upload, options}}/>
       </div>
       );
     }
 }
 
-export default App;
+const mapStateToProps = (state, id) => ({
+  id,
+  upload: state.upload,
+  options: state.options
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  update: (action) => {
+    dispatch(action)
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

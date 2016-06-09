@@ -1,0 +1,2 @@
+export const UPLOAD_DATA = 'UPLOAD_DATA';
+export const EXCHANGE_COLS = 'EXCHANGE_COLS';

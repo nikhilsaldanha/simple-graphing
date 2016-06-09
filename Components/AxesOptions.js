@@ -67,7 +67,7 @@ class AxesOptions extends Component {
           </select>
           {
             (() => {
-              switch(this.props.state.scale_type) {
+              switch(this.props.options.scale_type) {
                 case 'date':
                   return (
                     <span>

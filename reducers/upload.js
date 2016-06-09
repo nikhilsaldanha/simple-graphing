@@ -1,4 +1,4 @@
-import {UPLOAD_DATA, EXCHANGE_COLS} from '../constants/ActionTypes.js';
+import * as types from '../constants/actions/data.js';
 
 const initialState = {
     event: 'WAITING',
@@ -7,9 +7,9 @@ const initialState = {
 
 export default function upload(state=initialState, action) {
   switch(action.type) {
-    case UPLOAD_DATA:
+    case types.UPLOAD_DATA:
       return {data: action.data, event: 'UPLOADED'};
-    case EXCHANGE_COLS:
+    case types.EXCHANGE_COLS:
       return {data: action.data, event: 'UPLOADED'};
     default:
       return state;

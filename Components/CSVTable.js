@@ -12,7 +12,7 @@ class CSVTable extends Component {
   }
 
   render() {
-    let data = this.props.store.data;
+    let data = this.props.data.data;
     let keys=d3.keys(data[0]);
     return (
       <table>
@@ -36,6 +36,9 @@ class CSVTable extends Component {
       </table>
     );
   }
+}
+CSVTable.propTypes = {
+  data: React.PropTypes.object.isRequired
 }
 
 export default CSVTable;

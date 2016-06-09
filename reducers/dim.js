@@ -1,4 +1,4 @@
-import {CHANGE_DIM, DEFAULT_DIM, DEFAULT_HEIGHT, DEFAULT_MARGINS, DEFAULT_WIDTH} from '../constants/ActionTypes.js';
+import * as types from '../constants/actions/dim.js';
 
 const initialState = {
     width: 0,
@@ -11,21 +11,21 @@ const initialState = {
     }
 };
 
-const dim = (state = initialState, action) => {
+export default function dim(state = initialState, action) {
   switch(action.type) {
-    case CHANGE_DIM:
+    case types.CHANGE_DIM:
       return {...state, ...action['dim']};
 
-    case DEFAULT_WIDTH:
+    case types.DEFAULT_WIDTH:
       return {...state, width: 600};
 
-    case DEFAULT_HEIGHT:
+    case types.DEFAULT_HEIGHT:
       return {...state, height: 270};
 
-    case DEFAULT_MARGINS:
+    case types.DEFAULT_MARGINS:
       return {...state, margins: {top: 80, right: 100, bottom: 80, left: 40}};
 
-    case DEFAULT_DIM:
+    case types.DEFAULT_DIM:
       return {
         width: 600,
         height: 270,
