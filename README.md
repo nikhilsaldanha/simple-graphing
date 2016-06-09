@@ -14,6 +14,8 @@ A web tool for simple graphing in D3.js, rendered in React.js for real-time twea
 
 3. Next run `npm start`. This starts the app in the browser on localhost on port 3333. You can change this in **webpack.config.js**.
 
+4. Try uploading a csv file with two columns. I have also included a CSV file in the repo which you can test with.
+
 ## Idea
 
 The idea was to give users complete control of every aspect of the graph right from the data to space between the ticks on the axes.
