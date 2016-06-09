@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
-import React, { PropTypes } from 'react';
+import React, {Component, PropTypes } from 'react';
 import Slider from '../Components/Slider.js';
 
-class DimOptions extends React.Component {
+class DimOptions extends Component {
   constructor() {
     super();
     this.updateSize = this.updateSize.bind(this);

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import Options from './Options.js';
 import Graph from '../Components/Graph.js';
 import CSVTable from '../Components/CSVTable.js';
 
-class App extends React.Component {
+class App extends Component {
 
   constructor() {
 
@@ -22,14 +22,14 @@ class App extends React.Component {
       r[keys[0]] = d[keys[0]];
       return r;
     })
-    this.props.Dispatch({type: 'EXCHANGE', data: new_data});
+    this.props.Dispatch({type: 'EXCHANGE_COLS', data: new_data});
   }
   fileUpload(e) {
 
     let reader = new FileReader();
     let file = document.getElementById(this.props.id).files[0];
     reader.onload = (e) => {
-      this.props.Dispatch({type: 'UPLOADED', data: d3.csv.parse(e.target.result)});
+      this.props.Dispatch({type: 'UPLOAD_DATA', data: d3.csv.parse(e.target.result)});
     }
     reader.readAsText(file);
   }

@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class CSVTable extends React.Component {
+
+class CSVTable extends Component {
 
   constructor() {
 

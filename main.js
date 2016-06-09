@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Containers/App';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 
 const upload = (state={event: 'WAITING', data: []}, action)=>{
   switch(action.type) {
-    case 'UPLOADED':
-      return {data: action.data, event: action.type};
-    case 'EXCHANGE':
+    case 'UPLOAD_DATA':
+      return {data: action.data, event: 'UPLOADED'};
+    case 'EXCHANGE_COLS':
       return {data: action.data, event: 'UPLOADED'};
     default:
       return state;
@@ -61,19 +61,28 @@ const dim = (state = {width: 0, height: 0, margins: {top:0, right: 0, bottom: 0,
   }
 };
 
-const options = (state = {}, action) => {
-  return {
-    axes: axes(state.axes, action),
-    dim: dim(state.dim, action)
-  };
-}
 
-const app = (state = {}, action) => {
-  return {
-    upload: upload(state.upload, action),
-    options: options(state.options, action)
-  }
-}
+// const options = (state = {}, action) => {
+//   return {
+//     axes: axes(state.axes, action),
+//     dim: dim(state.dim, action)
+//   };
+// }
+
+const app = combineReducers({
+  upload,
+  options: combineReducers({
+    axes,
+    dim
+  })
+});
+
+// const app = (state = {}, action) => {
+//   return {
+//     upload: upload(state.upload, action),
+//     options: options(state.options, action)
+//   }
+// }
 
 const store = createStore(app);
 

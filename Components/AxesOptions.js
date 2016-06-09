@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
-class AxesOptions extends React.Component {
+class AxesOptions extends Component {
 
   constructor() {
 

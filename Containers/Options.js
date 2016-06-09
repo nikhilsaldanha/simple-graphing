@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
-import React, { PropTypes } from 'react';
+import React, {Component, PropTypes } from 'react';
 import AxesOptions from '../Components/AxesOptions.js';
 import DimOptions from './DimOptions.js';
 
-class Options extends React.Component {
+class Options extends Component {
 
   constructor() {
 
