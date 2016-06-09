@@ -36,7 +36,7 @@ Currently there is no database and hence no server is required. In the future, o
 
 ## **Future Work and Areas for Contribution**
 
-* The first order of business would be to improve the folder structure.
+* ~~The first order of business would be to improve the folder structure.~~
 
 * Currently the UI looks sub-par which I'm looking to improve.
 
