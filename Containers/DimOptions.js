@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 import React, {Component, PropTypes } from 'react';
-import Slider from '../Components/Slider.js';
+import Slider from '../components/Slider.js';
 
 class DimOptions extends Component {
   constructor() {

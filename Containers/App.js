@@ -3,8 +3,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import Options from './Options';
-import Graph from '../Components/Graph';
-import CSVTable from '../Components/CSVTable';
+import Graph from '../components/Graph';
+import CSVTable from '../components/CSVTable';
 import * as actions from '../actions/data';
  
 class App extends Component {
